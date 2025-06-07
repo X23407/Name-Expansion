@@ -1,0 +1,82 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Name Expansion</title>
+    </head>
+    <h1>Name Expansion</h1>
+    <p id = "Para">This is a paragraph</p>
+    <body>
+        <script>
+            console.clear()
+            function pprint(text){
+                document.write(text);
+            }
+            function nameFull(small){
+                if (small in dict){
+                    let returnAble = dict[small][0];
+                    dict[small].shift();
+                    return returnAble;
+                } else{
+                    return small
+                }
+                
+            }
+            var dict = {
+  "a": ["Andromeda", "Apollo", "Arcturus", "Aquila", "Auriga"],
+  "b": ["Betelgeuse", "Bootes", "Black Hole", "Barnard's Star", "Binary Star"],
+  "c": ["Cassiopeia", "Canopus", "Cepheus", "Centaurus", "Crab Nebula"],
+  "d": ["Draco", "Deep Field", "Dark Matter", "Delta Cephei", "Deneb"],
+  "e": ["Enceladus", "Europa", "Eagle Nebula", "Eridanus", "Exoplanet"],
+  "f": ["Fomalhaut", "Flare Star", "Fornax", "Falcon 9", "Filament"],
+  "g": ["Galileo", "Galileo Galilei", "Galaxy", "Ganymede", "Gamma Ray"],
+  "h": ["Hubble", "Helix Nebula", "Hercules", "Hypernova", "Hydra"],
+  "i": ["Io", "Interstellar", "International Space Station", "Ice Giant", "Irregular Galaxy"],
+  "j": ["Jupiter", "Jet Propulsion Laboratory", "James Webb", "Juno", "Janus"],
+  "k": ["Kepler", "KBO (Kuiper Belt Object)", "Kappa Centauri", "KELT-9b", "Kari (moon)"],
+  "l": ["Lunar", "Lynx", "Leo", "Lagrange Point", "Large Magellanic Cloud"],
+  "m": ["Mars", "Milky Way", "Messier 87", "Magnetar", "Mira"],
+  "n": ["Neptune", "Nebula", "Nova", "Noctis Labyrinthus", "Nereid"],
+  "o": ["Orion", "Oberon", "Oort Cloud", "Omega Centauri", "Opposition"],
+  "p": ["Pluto", "Pulsar", "Phoenix", "Perseus", "Phobos"],
+  "q": ["Quasar", "QSO (Quasi-Stellar Object)", "Quantum Foam", "Quadrantids", "Quintuplet Cluster"],
+  "r": ["Rigel", "Rosette Nebula", "Red Dwarf", "Rhea", "Rings of Saturn"],
+  "s": ["Sirius", "Saturn", "Supernova", "Solar Flare", "Spica"],
+  "t": ["Titan", "Taurus", "Trappist-1", "Telescope", "Thermosphere"],
+  "u": ["Uranus", "Umbriel", "Universe", "Ultraviolet Radiation", "Ursa Major"],
+  "v": ["Voyager", "Vega", "Virgo Cluster", "Volans", "Van Allen Belts"],
+  "w": ["White Dwarf", "Wolf-Rayet Star", "Wormhole", "WISE Telescope", "Westerlund 1"],
+  "x": ["X-ray Binary", "Xenon Thruster", "XMM-Newton", "X-ray Pulsar", "X-shaped Bulge"],
+  "y": ["Ymir", "Y-dwarf", "Yttrium Star", "Yale Bright Star Catalog", "Young Stellar Object"],
+  "z": ["Zeta Reticuli", "Zodiacal Light", "Zenith", "Zeeman Effect", "Zwicky Galaxy"]
+};
+
+           let yourName = prompt("Enter Your Name");
+           yourName = yourName.split("");
+           pprint(yourName);
+           text = ""
+           for (i in yourName){
+            let small = yourName[i];
+            small = small.toLocaleLowerCase();
+            exText = nameFull(small);
+            if (small == " "){
+                text += "<br>";
+                continue;
+            }
+            text += small.toLocaleUpperCase();
+            text += "   : "
+            text += exText
+            text += "<br>"
+           }
+           document.getElementById("Para").innerHTML = text
+           console.log(yourName);
+           console.log(nameFull("a"));
+           console.log(nameFull("a"));
+           console.log(dict)
+           
+        </script>
+        
+    </body>
+    </html>
